@@ -1,5 +1,6 @@
 .dist
 .vscode
+InvestmentCalculator.class
 Manager.class
 Employee.class
 Developer.class
