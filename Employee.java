@@ -35,20 +35,14 @@ class Employee {
         System.out.println("Manager Info:");
         manager.viewProfile();
         manager.reports();
-        manager.manageproject();
-        manager.calculatebonus();
     
         System.out.println("Developer Info:");
         developer.viewProfile();
-        developer.reports();
-        developer.manageproject();
         developer.calculatebonus();
     
         System.out.println("Programmer Info:");
         programmer.viewProfile();
         programmer.reports();
-        programmer.manageproject();
-        programmer.calculatebonus();
     }
 }
 class Manager extends Employee {
