@@ -137,12 +137,11 @@ class Savingsaccount extends Bankaccount implements Debitable{
 
 public class Bankaccountmain{
     public static void main(String[] args) {
-        FixedDeposit FD1 = new FixedDeposit(1234567890, "Bunti", 0, 5, 2);
+        FixedDeposit FD1 = new FixedDeposit(1234567890, "Bunti", 0, 5, 5);
         FD1.deposit(200000);
         FD1.deposit(50000);
         FD1.withdraw(20000);
         FD1.display();
         FD1.closeaccount();
-        FD1.display();
     }
 }
