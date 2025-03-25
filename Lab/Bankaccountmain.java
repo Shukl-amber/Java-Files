@@ -3,8 +3,8 @@ class Bankaccount {
     String Name;
     double ROI, Balance;
 
-    public Bankaccount(int AccNo, int Aadhar, String Name, double ROI, double Balance) {
-        openaccount(AccNo, Aadhar, Name, ROI, Balance);
+    public Bankaccount() {
+        System.out.println("Bank Entry created successfully");
     }
 
     public void openaccount(int AccNo, int Aadhar, String Name, double ROI, double Balance) {
@@ -13,7 +13,6 @@ class Bankaccount {
         this.Name = Name;
         this.ROI = ROI;
         this.Balance = Balance;
-        System.out.println("Account opened successfully");
     }
 
     public void deposit(double amount) {
@@ -32,9 +31,9 @@ class Bankaccount {
         System.out.println("Account closed successfully for " + name);
     }
 
-    public void updateintrest(double NewROI) {
-        this.ROI = NewROI;
-        System.out.println("Intrest rate updated successfully");
+    public void updateintrest() {
+        Balance += (Balance)* (ROI/100);
+        System.out.println("Intrest updated successfully");
     }
 
     public void display() {
@@ -55,6 +54,7 @@ class FixedDeposit extends Bankaccount implements Debitable {
     int lockin, accage;
 
     public FixedDeposit(int Aadhar, String Name, double Balance, int lockin, int accage) {
+        super();
         int accno = 55;
         Double ROI;
         for (int i = 0; i < 3; i++) {
@@ -71,7 +71,7 @@ class FixedDeposit extends Bankaccount implements Debitable {
         }else
             ROI = 7.0;
 
-        super(accno, Aadhar, Name, ROI, Balance);
+        super.openaccount(accno,Aadhar,Name,ROI,Balance);
         this.lockin = lockin;
         this.accage = accage;
         System.out.println("Fixed Deposit account opened successfully");
@@ -97,8 +97,8 @@ class FixedDeposit extends Bankaccount implements Debitable {
     }
 
     public void updateintrest(double NewROI) {
-        this.ROI = NewROI;
-        System.out.println("Intrest rate updated successfully");
+        Balance+= (Balance)*(NewROI/100)*lockin;
+        System.out.println("Intrest updated successfully");
     }
 
     public void display() {
@@ -121,12 +121,14 @@ class Savingsaccount extends Bankaccount implements Debitable{
     }
 
     public Savingsaccount(int AccNo, int Aadhar, String Name, double Balance) {
+        super();
         int accno = 11;
         for (int i = 0; i < 3; i++) {
             accno *= 10;
             accno += (int) (Math.random() * 10);
         }
-        super(accno, Aadhar, Name, 4, Balance);
+        super.openaccount(accno, Aadhar, Name, 4.0, Balance);
+        System.out.println("Savings account opened successfully");
     }
 
     public void display() {
@@ -137,7 +139,8 @@ class Savingsaccount extends Bankaccount implements Debitable{
 
 public class Bankaccountmain{
     public static void main(String[] args) {
-        Bankaccount B1 = new Bankaccount(123456, 123456789, "Amber", 4, 1000);
+        Bankaccount B1 = new Bankaccount();
+        B1.openaccount(123456, 123456789, "Amber", 4, 1000);
         B1.display();
         B1.deposit(1000);
         B1.display();
