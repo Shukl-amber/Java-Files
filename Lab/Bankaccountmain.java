@@ -137,26 +137,10 @@ class Savingsaccount extends Bankaccount implements Debitable{
 
 public class Bankaccountmain{
     public static void main(String[] args) {
-        Bankaccount B1 = new Bankaccount();
-        B1.openaccount(00001, 694202469, "Amber", 4, 1000);
-        B1.display();
-        B1.deposit(1000);
-        B1.display();
-        B1.closeaccount();
-        B1.display();
-
-        FixedDeposit FD1 = new FixedDeposit(123456789, "Pranav", 1000, 2, 1);
-        FD1.display();
-        FD1.withdraw(100);
-        FD1.display();
-        FD1.closeaccount();
-        FD1.display();
-
-        Savingsaccount S1 = new Savingsaccount(123456789, "Anurag", 10000);
-        S1.display();
-        S1.withdraw(2000);
-        S1.display();
-        S1.closeaccount();
+        Savingsaccount S1 = new Savingsaccount(1234567890, "Amber", 0);
+        S1.deposit(10000);
+        S1.withdraw(20000);
+        S1.updateintrest();
         S1.display();
     }
 }
