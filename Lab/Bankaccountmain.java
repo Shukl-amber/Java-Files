@@ -3,9 +3,7 @@ class Bankaccount {
     String Name;
     double ROI, Balance;
 
-    public Bankaccount() {
-        System.out.println("Bank Entry created successfully");
-    }
+    public Bankaccount() {}
 
     public void openaccount(int AccNo, int Aadhar, String Name, double ROI, double Balance) {
         this.AccNo = AccNo;
