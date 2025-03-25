@@ -35,11 +35,11 @@ class Bankaccount {
     }
 
     public void display() {
-        System.out.println("Account Number: " + AccNo);
+        System.out.println("\nAccount Number: " + AccNo);
         System.out.println("Aadhar Number: " + Aadhar);
         System.out.println("Name: " + Name);
-        System.out.println("Rate of Intrest: " + ROI);
-        System.out.println("Balance: " + Balance);
+        System.out.println("Rate of Intrest: " + ROI + "%");
+        System.out.println("Balance: " + Balance + "\n");
     }
 
 }
@@ -101,8 +101,8 @@ class FixedDeposit extends Bankaccount implements Debitable {
 
     public void display() {
         super.display();
-        System.out.println("Lockin period: " + lockin);
-        System.out.println("Account age: " + accage);
+        System.out.println("Lockin period: " + lockin + " years");
+        System.out.println("Account age: " + accage + " years\n");
     }
 
 }
@@ -118,7 +118,7 @@ class Savingsaccount extends Bankaccount implements Debitable{
             System.out.println("Insufficient balance");
     }
 
-    public Savingsaccount(int AccNo, int Aadhar, String Name, double Balance) {
+    public Savingsaccount(int Aadhar, String Name, double Balance) {
         super();
         int accno = 11;
         for (int i = 0; i < 3; i++) {
@@ -138,7 +138,7 @@ class Savingsaccount extends Bankaccount implements Debitable{
 public class Bankaccountmain{
     public static void main(String[] args) {
         Bankaccount B1 = new Bankaccount();
-        B1.openaccount(123456, 123456789, "Amber", 4, 1000);
+        B1.openaccount(00001, 694202469, "Amber", 4, 1000);
         B1.display();
         B1.deposit(1000);
         B1.display();
@@ -152,9 +152,9 @@ public class Bankaccountmain{
         FD1.closeaccount();
         FD1.display();
 
-        Savingsaccount S1 = new Savingsaccount(123456, 123456789, "Anurag", 1000);
+        Savingsaccount S1 = new Savingsaccount(123456789, "Anurag", 10000);
         S1.display();
-        S1.withdraw(999);
+        S1.withdraw(2000);
         S1.display();
         S1.closeaccount();
         S1.display();
