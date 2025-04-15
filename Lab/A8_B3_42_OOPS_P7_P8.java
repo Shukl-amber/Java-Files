@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
 class Product {
@@ -55,8 +52,40 @@ public class A8_B3_42_OOPS_P7_P8 {
             return;
         }
 
-        for (Product p : products) {
-            p.display_product(); 
+        Scanner scanner = new Scanner(System.in);
+        int choice=0;
+
+        System.out.println("Enter 1 To Display All Products");
+        System.out.println("Enter 2 To Display Products With 50% Discount And Final Cost:");
+        System.out.println("Enter 3 To Exit");
+
+        while (choice != 3) {
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("All Products:\n");
+                    Iterator<Product> iterator = products.iterator();
+                    while (iterator.hasNext()) {
+                        Product p = iterator.next();
+                        p.display_product();
+                    }
+                    break;
+                case 2:
+                    System.out.println("Products with 50% Discount:");
+                    for (Product p : products) {
+                        if (p.getmax_discount() == 50) {
+                            p.display_product();
+                        }
+                    }
+                    break;
+                case 3:
+                    System.out.println("Exiting...\n");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.\n");
+            }
         }
+        scanner.close();
     }
 }
