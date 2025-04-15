@@ -1,0 +1,3 @@
+Laptop,60000,Dell,50
+Mouse,500,Logitech,10
+Keyboard,800,HP,50
